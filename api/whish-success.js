@@ -58,7 +58,7 @@ function orderEmailHtml(order) {
           '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;font-size:15px;line-height:1.6;border-collapse:collapse;">' +
             row("Order", bundleLine) +
             (order.amount ? row("Total", "$" + esc(order.amount)) : "") +
-            row("Payment", "Whish Money") +
+            row("Payment", "Whish Pay") +
             row("Deliver to", deliverTo) +
             row("Phone", esc(order.phone)) +
           '</table>' +
