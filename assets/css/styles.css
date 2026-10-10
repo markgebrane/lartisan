@@ -421,3 +421,10 @@
 
   /* Lock background scroll while the Oak Club sign-up modal is open */
   body.modal-open{overflow:hidden}
+
+  /* ===== "Out of stock" badge (home-page product sections) =====
+     Reuses the bright solid-gold "Best value" bundle-badge tokens
+     (var(--brass-bright) background on var(--ink) text); sized a step larger
+     than that badge so it reads as a clear, prominent stock marker. */
+  .oos-badge{display:inline-block;font-family:var(--util);text-transform:uppercase;letter-spacing:.16em;font-size:14px;font-weight:500;color:var(--ink);background:var(--brass-bright);padding:7px 18px;border-radius:2px;line-height:1}
+  .glass-card-body .oos-badge{margin-bottom:14px}
