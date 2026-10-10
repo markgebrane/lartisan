@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="stylesheet" href="assets/css/store.css">
+<link rel="stylesheet" href="assets/css/preorder.css">
 </head>
 <body>
 
@@ -73,15 +74,16 @@
       </div>
       <div class="bundle-grid" role="radiogroup" aria-label="Choose a set" data-default="3">
 
-        <article class="bundle-card" data-qty="1" role="radio" aria-checked="false" tabindex="0">
+        <article class="bundle-card" data-qty="1" role="radio" aria-checked="false" tabindex="0" data-preorder-label="1 Mountain Glass ($12)">
           <div class="bundle-radio" aria-hidden="true"></div>
           <h3>Single</h3>
           <span class="bundle-sub">1 Glass</span>
           <div class="bundle-price">$12</div>
           <div class="bundle-note">One glass, one ritual.</div>
+          <span class="preorder-tag">Pre-order</span>
         </article>
 
-        <article class="bundle-card" data-qty="2" role="radio" aria-checked="false" tabindex="0">
+        <article class="bundle-card" data-qty="2" role="radio" aria-checked="false" tabindex="0" data-preorder-label="2 Mountain Glasses ($20)">
           <div class="bundle-radio" aria-hidden="true"></div>
           <h3>Set of 2</h3>
           <span class="bundle-sub">2 Glasses</span>
@@ -89,9 +91,10 @@
           <span class="bundle-was">$24</span>
           <span class="bundle-save">Save $4</span>
           <div class="bundle-note">One to keep, one to share.</div>
+          <span class="preorder-tag">Pre-order</span>
         </article>
 
-        <article class="bundle-card" data-qty="3" role="radio" aria-checked="false" tabindex="0">
+        <article class="bundle-card" data-qty="3" role="radio" aria-checked="false" tabindex="0" data-preorder-label="3 Mountain Glasses ($26)">
           <div class="bundle-badges">
             <span class="bundle-badge">Most popular</span>
             <span class="bundle-badge">Best value</span>
@@ -103,17 +106,62 @@
           <span class="bundle-was">$36</span>
           <span class="bundle-save">Save $10</span>
           <div class="bundle-note">The set for the whole table.</div>
+          <span class="preorder-tag">Pre-order</span>
         </article>
 
       </div>
 
-      <div class="bundle-cta">
-        <a class="btn btn-gold buynow" data-buynow data-product="glass" href="checkout.html?product=glass&amp;bundle=3">Buy it now</a>
+      <div class="preorder-notice">
+        <b>Out of stock right now — glasses ship in a few weeks.</b> Reserve yours now, no payment required. We'll contact you on WhatsApp when they're ready.
       </div>
-      <p class="bundle-fine">No account, no card. Choose your set, check out in a minute, and pay Cash on Delivery or Whish Pay — across Lebanon.</p>
+      <div class="bundle-cta">
+        <button type="button" class="btn btn-gold" data-preorder-open>Pre-order now</button>
+      </div>
+      <p class="bundle-fine">No payment is taken now. Pick your set, reserve in under a minute, and we'll confirm on WhatsApp before anything ships — across Lebanon.</p>
     </div>
   </section>
 </main>
+
+<!-- Pre-order modal (reservation only — no payment, no checkout redirect) -->
+<div class="preorder-modal" id="preorderModal" aria-hidden="true">
+  <div class="preorder-backdrop" data-close></div>
+  <div class="preorder-dialog" role="dialog" aria-modal="true" aria-labelledby="preorderTitle">
+    <button class="preorder-close" type="button" aria-label="Close" data-close>&times;</button>
+    <span class="eyebrow">Pre-order</span>
+    <h3 id="preorderTitle">Reserve yours</h3>
+    <p class="preorder-modal-lede">No payment now — just leave your details and we'll message you on WhatsApp the moment it's ready to ship.</p>
+    <div class="preorder-summary">You're reserving:<b data-preorder-option>Your selection</b></div>
+    <form id="preorderForm" class="checkout-form preorder-form" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="poFirst">First name *</label>
+          <input id="poFirst" name="firstName" type="text" required autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="poLast">Last name *</label>
+          <input id="poLast" name="lastName" type="text" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="field">
+        <label for="poPhone">Phone / WhatsApp *</label>
+        <input id="poPhone" name="phone" type="tel" required inputmode="tel" autocomplete="tel"
+               minlength="6" title="Enter a valid phone number">
+      </div>
+      <div class="field">
+        <label for="poEmail">Email <span class="opt">(optional)</span></label>
+        <input id="poEmail" name="email" type="email" autocomplete="email">
+      </div>
+      <button type="submit" class="btn btn-gold checkout-submit" id="poSubmit">Reserve — no payment</button>
+      <p class="preorder-error" data-preorder-error style="display:none"></p>
+      <p class="privacy">No payment is taken. Your details are used only to contact you when your pre-order is ready.</p>
+    </form>
+    <div class="preorder-ok" data-preorder-ok hidden>
+      <div class="preorder-ok-mark" aria-hidden="true">&#10003;</div>
+      <p>You're on the list — we'll contact you on WhatsApp as soon as your order is ready.</p>
+      <button type="button" class="btn btn-ghost" data-close>Close</button>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -153,6 +201,7 @@
 <!-- store.js drives the set selection; main.js powers the hero carousel -->
 <script src="assets/js/store.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/preorder.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

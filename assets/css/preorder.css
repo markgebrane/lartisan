@@ -1,0 +1,58 @@
+/* ===== L'Artisan — Pre-order (out-of-stock reservations) =====
+   Styles for the pre-order notice, the per-option "Pre-order" tag, and the
+   reservation modal. Self-contained: loaded only on the out-of-stock store
+   pages. The modal mirrors the Oak Club modal's look/behaviour; the form reuses
+   the shared .checkout-form field styles from store.css. */
+
+/* Out-of-stock notice shown near the buy area. */
+.preorder-notice{
+  max-width:560px;margin:0 auto 26px;
+  border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:5px;
+  background:linear-gradient(160deg,var(--walnut-2),var(--ink));
+  padding:16px 20px;font-size:15px;line-height:1.6;color:var(--parchment-dim);
+}
+.preorder-notice b{color:var(--brass-bright);font-family:var(--display);font-weight:500}
+
+/* Small "Pre-order" tag appended to each option card (price stays visible). */
+.preorder-tag{
+  display:inline-block;margin-top:12px;
+  font-family:var(--util);text-transform:uppercase;letter-spacing:.14em;
+  font-size:10px;font-weight:600;color:var(--brass);
+  background:rgba(160,114,42,.12);border:1px solid var(--line);border-radius:999px;
+  padding:3px 11px;
+}
+
+/* ===== Reservation modal (mirrors .club-modal) ===== */
+.preorder-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.preorder-modal.open{display:flex}
+.preorder-backdrop{position:absolute;inset:0;background:rgba(8,6,4,.72);backdrop-filter:blur(3px)}
+.preorder-dialog{position:relative;z-index:1;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;border:1px solid var(--line);border-radius:8px;background:linear-gradient(160deg,var(--walnut-2),var(--ink));padding:38px 32px 30px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.preorder-dialog .eyebrow{display:block;margin-bottom:12px}
+.preorder-dialog h3{font-size:28px;color:var(--brass-bright);margin-bottom:12px;line-height:1.15}
+.preorder-modal-lede{font-size:16px;color:var(--parchment-dim);line-height:1.55;margin-bottom:18px}
+.preorder-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--brass);font-size:30px;line-height:1;cursor:pointer;padding:4px;transition:color .2s}
+.preorder-close:hover{color:var(--brass-bright)}
+
+/* Selected option summary inside the modal. */
+.preorder-summary{
+  border:1px solid var(--line);border-radius:5px;background:rgba(14,11,8,.4);
+  padding:13px 16px;margin-bottom:22px;font-size:15px;color:var(--parchment-dim);
+}
+.preorder-summary b{display:block;margin-top:3px;font-family:var(--display);font-size:18px;color:var(--brass-bright);font-weight:500}
+
+/* Optional-field hint on a label. */
+.preorder-form label .opt{color:var(--parchment-dim);font-weight:400;letter-spacing:.04em;text-transform:none}
+
+/* Inline error / status line under the form. */
+.preorder-error{color:#d98b7a;font-size:14px;line-height:1.5;margin-top:14px;text-align:center}
+
+/* Success state (shown in place of the form after a successful reservation). */
+.preorder-ok{text-align:center;padding:10px 0 4px}
+.preorder-ok-mark{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;background:rgba(160,114,42,.1);color:var(--brass-bright);font-size:30px}
+.preorder-ok p{font-size:17px;color:var(--parchment);line-height:1.6;margin-bottom:24px}
+.preorder-ok .btn{min-width:160px;justify-content:center}
+
+@media(max-width:520px){
+  .preorder-dialog{padding:32px 22px 26px}
+  .preorder-dialog h3{font-size:24px}
+}
