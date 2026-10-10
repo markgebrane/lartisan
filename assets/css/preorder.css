@@ -4,9 +4,10 @@
    pages. The modal mirrors the Oak Club modal's look/behaviour; the form reuses
    the shared .checkout-form field styles from store.css. */
 
-/* Out-of-stock notice shown near the buy area. */
+/* Out-of-stock notice shown near the buy area. The generous top margin keeps it
+   clearly separated from the option/bundle card above it. */
 .preorder-notice{
-  max-width:560px;margin:0 auto 26px;
+  max-width:560px;margin:40px auto 26px;
   border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:5px;
   background:linear-gradient(160deg,var(--walnut-2),var(--ink));
   padding:16px 20px;font-size:15px;line-height:1.6;color:var(--parchment-dim);
